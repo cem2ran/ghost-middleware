@@ -9,7 +9,7 @@ FROM dockerfile/nodejs
 
 # Install Ghost
 RUN \
-  git clone https://github.com/cem2ran/Ghost.git /ghost && git checkout stable && \
+  git clone https://github.com/cem2ran/Ghost /ghost && git checkout stable && \
   cd /ghost && \
   npm install -g grunt-cli && npm install --production && grunt prod && \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
