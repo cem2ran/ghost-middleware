@@ -7,6 +7,7 @@ CONFIG="config.js"
 DATA="content/data"
 IMAGES="content/images"
 THEMES="content/themes"
+ROUTES="content/routes"
 
 cd "$GHOST"
 
@@ -34,6 +35,11 @@ if [[ -d "$OVERRIDE/$THEMES" ]]; then
     ln -s "$OVERRIDE/$THEMES/$theme" "$THEMES/$theme"
   done
 fi
+
+# Symlink routes directory
+mkdir -p "$OVERRIDE/$ROUTES"
+rm -fr "$ROUTES"
+ln -s "$OVERRIDE/$ROUTES" "$ROUTES"
 
 # Start Ghost
 chown -R ghost:ghost /data /ghost /ghost-override
