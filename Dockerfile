@@ -11,7 +11,7 @@ FROM dockerfile/nodejs
 RUN \
   git clone https://github.com/cem2ran/Ghost.git /ghost && \
   cd /ghost && git checkout stable && \
-  npm install -g grunt-cli && npm install && grunt prod && \
+  npm install -g grunt-cli && npm install && grunt init && grunt prod && \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
   useradd ghost --home /ghost
 
