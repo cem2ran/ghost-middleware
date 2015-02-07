@@ -11,6 +11,11 @@ ROUTES="content/routes"
 
 cd "$GHOST"
 
+git pull
+git submodule init
+git submodule update --recursive
+git submodule foreach npm install
+
 # Symlink data directory.
 mkdir -p "$OVERRIDE/$DATA"
 rm -fr "$DATA"
